@@ -69,7 +69,7 @@
     "raml-to-swagger": "^1.1.0",
     "request": "^2.88.2",
     "source-map": "0.6.0",
-    "swagger-converter": "^1.5.1",
+    "swagger-converter": "^2.1.0",
     "swagger2openapi": "2.9.*",
     "sway": "^2.0.5",
     "traverse": "^0.6.6",
