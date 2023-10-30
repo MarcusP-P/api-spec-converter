@@ -67,7 +67,14 @@
     "sway": "^2.0.5",
     "traverse": "^0.6.6",
     "urijs": "^1.19.5",
-    "xml2js": "^0.4.23"
+    "xml2js": "^0.4.23",
+    "apib2swagger": "^1.9.0",
+    "drafter.js": "^2.6.7",
+    "google-discovery-to-swagger": "^2.0.0",
+    "raml-parser": "^0.8.18",
+    "raml-to-swagger": "^1.1.0",
+    "swagger-converter": "^1.5.1",
+    "swagger2openapi": "2.9.*"
   },
   "devDependencies": {
     "babel-polyfill": "^6.23.0",
@@ -85,14 +92,5 @@
     "mkdirp": "^0.5.1",
     "mocha": "^8.1.2",
     "puppeteer": "^1.20.0"
-  },
-  "optionalDependencies": {
-    "apib2swagger": "^1.9.0",
-    "drafter.js": "^2.6.7",
-    "google-discovery-to-swagger": "^2.0.0",
-    "raml-parser": "^0.8.18",
-    "raml-to-swagger": "^1.1.0",
-    "swagger-converter": "^1.5.1",
-    "swagger2openapi": "2.9.*"
   }
 }
