@@ -5,7 +5,7 @@ var _ = require('lodash');
 
 var Program = require('commander');
 var Package = require(__dirname + '/../package.json');
-var Converter = require('..');
+var Converter = require('../index.js');
 
 function keyValue (keyvalue, result) {
   const pair = keyvalue.split('=', 2);
