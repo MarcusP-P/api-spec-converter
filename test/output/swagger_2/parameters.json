@@ -11,7 +11,9 @@
   "paths": {
     "/message/{id}": {
       "get": {
+        "consumes": [],
         "description": "",
+        "operationId": "Retrieve a Message",
         "parameters": [
           {
             "description": "An unique identifier of the message.",
@@ -42,7 +44,26 @@
                 "message": "Hello World!"
               }
             },
-            "headers": {}
+            "headers": {
+              "X-My-Message-Header": {
+                "type": "string"
+              }
+            },
+            "schema": {
+              "example": {
+                "id": 1,
+                "message": "Hello World!"
+              },
+              "properties": {
+                "id": {
+                  "type": "number"
+                },
+                "message": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
           }
         },
         "summary": "Retrieve a Message",
@@ -51,7 +72,12 @@
         ]
       },
       "put": {
+        "consumes": [
+          "text/plain",
+          "application/json"
+        ],
         "description": "",
+        "operationId": "Update a Message",
         "parameters": [
           {
             "description": "An unique identifier of the message.",
@@ -92,7 +118,9 @@
     },
     "/messages": {
       "get": {
+        "consumes": [],
         "description": "",
+        "operationId": "Retrieve all Messages",
         "parameters": [
           {
             "default": 20,
@@ -132,7 +160,39 @@
                 }
               ]
             },
-            "headers": {}
+            "headers": {},
+            "schema": {
+              "example": [
+                {
+                  "id": 1,
+                  "message": "Hello World!"
+                },
+                {
+                  "id": 2,
+                  "message": "Time is an illusion. Lunchtime doubly so."
+                },
+                {
+                  "id": 3,
+                  "message": "So long, and thanks for all the fish."
+                }
+              ],
+              "items": {
+                "properties": {
+                  "id": {
+                    "type": "number"
+                  },
+                  "message": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "message"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            }
           }
         },
         "summary": "Retrieve all Messages",

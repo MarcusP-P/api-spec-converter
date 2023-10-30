@@ -15,7 +15,9 @@
   "paths": {
     "/": {
       "get": {
+        "consumes": [],
         "description": "",
+        "operationId": "Retrieve the Entry Point",
         "parameters": [],
         "produces": [
           "application/json"
@@ -28,7 +30,18 @@
                 "questions_url": "/questions"
               }
             },
-            "headers": {}
+            "headers": {},
+            "schema": {
+              "example": {
+                "questions_url": "/questions"
+              },
+              "properties": {
+                "questions_url": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
           }
         },
         "summary": "Retrieve the Entry Point",
@@ -37,7 +50,9 @@
     },
     "/questions": {
       "get": {
+        "consumes": [],
         "description": "",
+        "operationId": "List All Questions",
         "parameters": [
           {
             "description": "The page of questions to return",
@@ -85,7 +100,79 @@
                 }
               ]
             },
-            "headers": {}
+            "headers": {
+              "Link": {
+                "type": "string"
+              }
+            },
+            "schema": {
+              "example": [
+                {
+                  "choices": [
+                    {
+                      "choice": "Swift",
+                      "url": "/questions/1/choices/1",
+                      "votes": 2048
+                    },
+                    {
+                      "choice": "Python",
+                      "url": "/questions/1/choices/2",
+                      "votes": 1024
+                    },
+                    {
+                      "choice": "Objective-C",
+                      "url": "/questions/1/choices/3",
+                      "votes": 512
+                    },
+                    {
+                      "choice": "Ruby",
+                      "url": "/questions/1/choices/4",
+                      "votes": 256
+                    }
+                  ],
+                  "published_at": "2014-11-11T08:40:51.620Z",
+                  "question": "Favourite programming language?",
+                  "url": "/questions/1"
+                }
+              ],
+              "items": {
+                "properties": {
+                  "choices": {
+                    "items": {
+                      "properties": {
+                        "choice": {
+                          "type": "string"
+                        },
+                        "url": {
+                          "type": "string"
+                        },
+                        "votes": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "choice",
+                        "url",
+                        "votes"
+                      ],
+                      "type": "object"
+                    },
+                    "type": "array"
+                  },
+                  "published_at": {
+                    "type": "string"
+                  },
+                  "question": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            }
           }
         },
         "summary": "List All Questions",
@@ -94,7 +181,11 @@
         ]
       },
       "post": {
+        "consumes": [
+          "application/json"
+        ],
         "description": "You may create your own question using this action. It takes a JSON object containing a question and a collection of answers in the form of choices.\n\n+ question (string) - The question\n\n+ choices (array[string]) - A collection of choices.",
+        "operationId": "Create a New Question",
         "parameters": [
           {
             "description": "The page of questions to return",
@@ -167,7 +258,74 @@
                 "url": "/questions/2"
               }
             },
-            "headers": {}
+            "headers": {
+              "Location": {
+                "type": "string"
+              }
+            },
+            "schema": {
+              "example": {
+                "choices": [
+                  {
+                    "choice": "Swift",
+                    "url": "/questions/2/choices/1",
+                    "votes": 0
+                  },
+                  {
+                    "choice": "Python",
+                    "url": "/questions/2/choices/2",
+                    "votes": 0
+                  },
+                  {
+                    "choice": "Objective-C",
+                    "url": "/questions/2/choices/3",
+                    "votes": 0
+                  },
+                  {
+                    "choice": "Ruby",
+                    "url": "/questions/2/choices/4",
+                    "votes": 0
+                  }
+                ],
+                "published_at": "2014-11-11T08:40:51.620Z",
+                "question": "Favourite programming language?",
+                "url": "/questions/2"
+              },
+              "properties": {
+                "choices": {
+                  "items": {
+                    "properties": {
+                      "choice": {
+                        "type": "string"
+                      },
+                      "url": {
+                        "type": "string"
+                      },
+                      "votes": {
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "choice",
+                      "url",
+                      "votes"
+                    ],
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "question": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
           }
         },
         "summary": "Create a New Question",
@@ -178,7 +336,9 @@
     },
     "/questions/{question_id}": {
       "get": {
+        "consumes": [],
         "description": "",
+        "operationId": "View a Questions Detail",
         "parameters": [
           {
             "description": "ID of the Question in form of an integer",
@@ -224,7 +384,70 @@
                 "url": "/questions/1"
               }
             },
-            "headers": {}
+            "headers": {},
+            "schema": {
+              "example": {
+                "choices": [
+                  {
+                    "choice": "Swift",
+                    "url": "/questions/1/choices/1",
+                    "votes": 2048
+                  },
+                  {
+                    "choice": "Python",
+                    "url": "/questions/1/choices/2",
+                    "votes": 1024
+                  },
+                  {
+                    "choice": "Objective-C",
+                    "url": "/questions/1/choices/3",
+                    "votes": 512
+                  },
+                  {
+                    "choice": "Ruby",
+                    "url": "/questions/1/choices/4",
+                    "votes": 256
+                  }
+                ],
+                "published_at": "2014-11-11T08:40:51.620Z",
+                "question": "Favourite programming language?",
+                "url": "/questions/1"
+              },
+              "properties": {
+                "choices": {
+                  "items": {
+                    "properties": {
+                      "choice": {
+                        "type": "string"
+                      },
+                      "url": {
+                        "type": "string"
+                      },
+                      "votes": {
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "choice",
+                      "url",
+                      "votes"
+                    ],
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "question": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
           }
         },
         "summary": "View a Questions Detail",
@@ -235,7 +458,9 @@
     },
     "/questions/{question_id}/choices/{choice_id}": {
       "post": {
+        "consumes": [],
         "description": "This action allows you to vote on a question's choice.",
+        "operationId": "Vote on a Choice",
         "parameters": [
           {
             "description": "ID of the Question in form of an integer",
@@ -258,7 +483,11 @@
           "201": {
             "description": "Created",
             "examples": {},
-            "headers": {}
+            "headers": {
+              "Location": {
+                "type": "string"
+              }
+            }
           }
         },
         "summary": "Vote on a Choice",

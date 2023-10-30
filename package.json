@@ -55,7 +55,7 @@
     ]
   },
   "dependencies": {
-    "apib2swagger": "^1.9.0",
+    "apib2swagger": "^1.17.1",
     "bluebird": "^3.7.2",
     "commander": "^2.20.0",
     "composite-error": "^0.1.1",

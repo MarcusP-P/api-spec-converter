@@ -15,6 +15,7 @@
     "/message/{id}": {
       "get": {
         "description": "",
+        "operationId": "Retrieve a Message",
         "parameters": [
           {
             "description": "An unique identifier of the message.",
@@ -48,11 +49,32 @@
                       "message": "Hello World!"
                     }
                   }
+                },
+                "schema": {
+                  "example": {
+                    "id": 1,
+                    "message": "Hello World!"
+                  },
+                  "properties": {
+                    "id": {
+                      "type": "number"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
                 }
               }
             },
             "description": "OK",
-            "headers": {}
+            "headers": {
+              "X-My-Message-Header": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           }
         },
         "summary": "Retrieve a Message",
@@ -62,6 +84,7 @@
       },
       "put": {
         "description": "",
+        "operationId": "Update a Message",
         "parameters": [
           {
             "description": "An unique identifier of the message.",
@@ -77,6 +100,19 @@
         "requestBody": {
           "content": {
             "application/json": {
+              "schema": {
+                "example": {
+                  "message": "All your base are belong to us."
+                },
+                "properties": {
+                  "message": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "text/plain": {
               "schema": {
                 "example": {
                   "message": "All your base are belong to us."
@@ -106,6 +142,7 @@
     "/messages": {
       "get": {
         "description": "",
+        "operationId": "Retrieve all Messages",
         "parameters": [
           {
             "description": "The maximum number of results to return.",
@@ -148,6 +185,38 @@
                       }
                     ]
                   }
+                },
+                "schema": {
+                  "example": [
+                    {
+                      "id": 1,
+                      "message": "Hello World!"
+                    },
+                    {
+                      "id": 2,
+                      "message": "Time is an illusion. Lunchtime doubly so."
+                    },
+                    {
+                      "id": 3,
+                      "message": "So long, and thanks for all the fish."
+                    }
+                  ],
+                  "items": {
+                    "properties": {
+                      "id": {
+                        "type": "number"
+                      },
+                      "message": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "message"
+                    ],
+                    "type": "object"
+                  },
+                  "type": "array"
                 }
               }
             },

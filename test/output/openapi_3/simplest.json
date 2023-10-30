@@ -9,6 +9,7 @@
     "/message": {
       "get": {
         "description": "",
+        "operationId": "",
         "responses": {
           "200": {
             "content": {
